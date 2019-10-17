@@ -825,7 +825,7 @@ var ModalUploadService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL_SERVICIOS", function() { return URL_SERVICIOS; });
-var URL_SERVICIOS = 'http://67.205.169.202:3000/';
+var URL_SERVICIOS = 'http://67.205.169.202:3000';
 
 
 /***/ }),
