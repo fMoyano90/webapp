@@ -4272,7 +4272,6 @@ var EmpresaService = /** @class */ (function () {
         this.router = router;
         this._subirArchivoService = _subirArchivoService;
         this._usuarioService = _usuarioService;
-        this.token = localStorage.getItem('token');
     }
     EmpresaService.prototype.cargarEmpresas = function (desde) {
         if (desde === void 0) { desde = 0; }
@@ -4287,7 +4286,7 @@ var EmpresaService = /** @class */ (function () {
     };
     EmpresaService.prototype.crearEmpresa = function (empresa) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"] + '/empresa';
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.post(url, empresa)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_7___default()('Empresa creada', empresa.nombre, 'success');
@@ -4296,7 +4295,7 @@ var EmpresaService = /** @class */ (function () {
     };
     EmpresaService.prototype.actualizarEmpresa = function (empresa) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"] + '/empresa/' + empresa._id;
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.put(url, empresa)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_7___default()('Usuario actualizado', empresa.nombre, 'success');
@@ -4316,7 +4315,7 @@ var EmpresaService = /** @class */ (function () {
     };
     EmpresaService.prototype.borrarEmpresa = function (id) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"] + '/empresa/' + id;
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.delete(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_7___default()('Empresa borrada', 'La empresa a sido eliminada correctamente', 'success');
@@ -4537,7 +4536,6 @@ var NoticiaService = /** @class */ (function () {
         this.router = router;
         this._usuarioService = _usuarioService;
         this._subirArchivoService = _subirArchivoService;
-        this.token = localStorage.getItem('token');
     }
     NoticiaService.prototype.obtenerNoticia = function (id) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_4__["URL_SERVICIOS"] + '/noticia/' + id;
@@ -4562,7 +4560,7 @@ var NoticiaService = /** @class */ (function () {
     };
     NoticiaService.prototype.crearNoticia = function (noticia) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_4__["URL_SERVICIOS"] + '/noticia';
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.post(url, noticia)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_8___default()('Noticia creada', noticia.titulo, 'success');
@@ -4571,7 +4569,7 @@ var NoticiaService = /** @class */ (function () {
     };
     NoticiaService.prototype.actualizarNoticia = function (noticia) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_4__["URL_SERVICIOS"] + '/noticia/' + noticia._id;
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.put(url, noticia)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_8___default()('Noticia actualizada', noticia.titulo, 'success');
@@ -4591,7 +4589,7 @@ var NoticiaService = /** @class */ (function () {
     };
     NoticiaService.prototype.borrarNoticia = function (id) {
         var url = src_app_config_config__WEBPACK_IMPORTED_MODULE_4__["URL_SERVICIOS"] + '/noticia/' + id;
-        url += '?token=' + this.token;
+        url += '?token=' + this._usuarioService.token;
         return this.http.delete(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (resp) {
             sweetalert__WEBPACK_IMPORTED_MODULE_8___default()('Noticia borrada', 'La noticia a sido eliminada correctamente', 'success');
